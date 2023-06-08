@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KentWebForms", "KentWebForms\KentWebForms.csproj", "{016CB0C3-28BC-41C4-84EF-862400E3E1E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KentWebForms.App", "KentWebForms.App\KentWebForms.App.csproj", "{016CB0C3-28BC-41C4-84EF-862400E3E1E6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{DB387E02-7DA9-40CA-9FAE-2FBC99E5CB66}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{FA9D1F4B-5260-47B1-A88F-94B6B3F50952}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KentWebForms.Infrastructure", "KentWebForms.Infrastructure\KentWebForms.Infrastructure.csproj", "{4A046E6E-A534-4EE1-A340-ECB9691A44CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +21,17 @@ Global
 		{016CB0C3-28BC-41C4-84EF-862400E3E1E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{016CB0C3-28BC-41C4-84EF-862400E3E1E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{016CB0C3-28BC-41C4-84EF-862400E3E1E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A046E6E-A534-4EE1-A340-ECB9691A44CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A046E6E-A534-4EE1-A340-ECB9691A44CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A046E6E-A534-4EE1-A340-ECB9691A44CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A046E6E-A534-4EE1-A340-ECB9691A44CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{016CB0C3-28BC-41C4-84EF-862400E3E1E6} = {DB387E02-7DA9-40CA-9FAE-2FBC99E5CB66}
+		{4A046E6E-A534-4EE1-A340-ECB9691A44CF} = {FA9D1F4B-5260-47B1-A88F-94B6B3F50952}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {773001A3-D856-4DDD-B899-CECDE7581422}
