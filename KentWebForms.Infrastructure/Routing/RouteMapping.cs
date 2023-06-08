@@ -22,6 +22,11 @@
             CreateRoute("/account/course", "/Pages/Account/Course.aspx")
         };
 
+        public static List<RoutingModel> ErrorRoutes = new List<RoutingModel>()
+        {
+            CreateRoute("/not-found", "/Pages/Errors/NotFound.aspx")
+        };
+
         private static RoutingModel CreateRoute(string route, string path)
         {
             return new RoutingModel { Route = route, Path = path };
