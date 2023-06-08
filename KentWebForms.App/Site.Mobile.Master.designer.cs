@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KentWebForms {
+namespace KentWebForms.App {
     
     
     public partial class Site_Mobile {
