@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KentWebForms.App", "KentWeb
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{50749F37-F597-4C31-B4F5-07D4C02D5043}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{5CB88C0D-07C2-4048-B90D-24364D4A3DA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KentWebForms.Infrastructure", "KentWebForms.Infrastructure\KentWebForms.Infrastructure.csproj", "{00C28B41-C082-4686-B18C-A774BA566B72}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +21,17 @@ Global
 		{29BD79B3-7DF7-4E20-AE80-57E729D82FBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29BD79B3-7DF7-4E20-AE80-57E729D82FBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29BD79B3-7DF7-4E20-AE80-57E729D82FBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00C28B41-C082-4686-B18C-A774BA566B72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00C28B41-C082-4686-B18C-A774BA566B72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00C28B41-C082-4686-B18C-A774BA566B72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00C28B41-C082-4686-B18C-A774BA566B72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{29BD79B3-7DF7-4E20-AE80-57E729D82FBF} = {50749F37-F597-4C31-B4F5-07D4C02D5043}
+		{00C28B41-C082-4686-B18C-A774BA566B72} = {5CB88C0D-07C2-4048-B90D-24364D4A3DA9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EB7E59B3-29D9-492D-B8B6-C68D60CFDDA7}
