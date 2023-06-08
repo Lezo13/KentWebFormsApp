@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Security.Claims;
-using System.Security.Principal;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using Microsoft.AspNet.Identity;
-
-namespace KentWebForms.App
+﻿namespace KentWebForms.App
 {
+    using System;
+    using System.Web;
+    using System.Web.Security;
+    using System.Web.UI;
+    using System.Web.UI.WebControls;
+    using Microsoft.AspNet.Identity;
+
     public partial class SiteMaster : MasterPage
     {
         private const string AntiXsrfTokenKey = "__AntiXsrfToken";
@@ -69,12 +66,26 @@ namespace KentWebForms.App
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            this.ManageNavBarDisplay();
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
             Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+        }
+
+        private void ManageNavBarDisplay()
+        {
+            string currentRoute = Request.Path.ToLower();
+
+            if (currentRoute.Contains("notfound"))
+            {
+                navBar.Visible = false;
+            }
+            else
+            {
+                navBar.Visible = true;
+            }
         }
     }
 

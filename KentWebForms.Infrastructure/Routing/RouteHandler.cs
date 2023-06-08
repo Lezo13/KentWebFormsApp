@@ -18,6 +18,12 @@
             return data.Path;
         }
 
+        public static string GetNotFoundRoute()
+        {
+            var data = AllRoutes.Find(r => r.Path.ToLower().Contains("notfound"));
+            return data.Route;
+        }
+
         private static List<RoutingModel> GetAllRoutes()
         {
             List<RoutingModel> allRoutes = new List<RoutingModel>();
@@ -25,6 +31,7 @@
             allRoutes.AddRange(RouteMapping.MainRoutes);
             allRoutes.AddRange(RouteMapping.AccountRoutes);
             allRoutes.AddRange(RouteMapping.CourseRoutes);
+            allRoutes.AddRange(RouteMapping.ErrorRoutes);
 
             return allRoutes;
         }

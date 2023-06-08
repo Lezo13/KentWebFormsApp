@@ -7,11 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KentWebForms.App {
-    
-    
-    public partial class SiteMaster {
-        
+namespace KentWebForms.App
+{
+    public partial class SiteMaster
+    {
+
+        /// <summary>
+        /// navBar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl navBar;
+
         /// <summary>
         /// MainContent control.
         /// </summary>
