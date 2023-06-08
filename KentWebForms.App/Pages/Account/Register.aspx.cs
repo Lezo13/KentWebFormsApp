@@ -7,7 +7,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Owin;
 using KentWebForms.App.Models;
 
-namespace KentWebForms.App.Account
+namespace KentWebForms.App.Pages.Account
 {
     public partial class Register : Page
     {

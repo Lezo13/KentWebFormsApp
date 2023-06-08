@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KentWebForms.App.Account {
-    
-    
-    public partial class ResetPassword {
-        
+namespace KentWebForms.App.Pages.Account
+{
+
+
+    public partial class Login
+    {
+
         /// <summary>
         /// ErrorMessage control.
         /// </summary>
@@ -19,8 +21,17 @@ namespace KentWebForms.App.Account {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ErrorMessage;
-        
+        protected global::System.Web.UI.WebControls.PlaceHolder ErrorMessage;
+
+        /// <summary>
+        /// FailureText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal FailureText;
+
         /// <summary>
         /// Email control.
         /// </summary>
@@ -29,7 +40,7 @@ namespace KentWebForms.App.Account {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Email;
-        
+
         /// <summary>
         /// Password control.
         /// </summary>
@@ -38,14 +49,23 @@ namespace KentWebForms.App.Account {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Password;
-        
+
         /// <summary>
-        /// ConfirmPassword control.
+        /// RememberMe control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ConfirmPassword;
+        protected global::System.Web.UI.WebControls.CheckBox RememberMe;
+
+        /// <summary>
+        /// RegisterHyperLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink RegisterHyperLink;
     }
 }

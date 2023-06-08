@@ -10,6 +10,7 @@ using System.Web.Http;
 using System.Data.Entity;
 using KentWebForms.App.Models;
 using KentWebForms.App.Migrations;
+using KentWebForms.Infrastructure.Routing;
 
 namespace KentWebForms.App
 {
@@ -22,6 +23,22 @@ namespace KentWebForms.App
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
+        }
+
+        protected void Application_BeginRequest(object sender, EventArgs e)
+        {
+            this.HandleRouting();
+        }
+
+        private void HandleRouting()
+        {
+            string requestPath = Request.Path.ToLower().Replace(".aspx", string.Empty);
+
+            if (RouteHandler.MatchRoute(requestPath))
+            {
+                string rewritePath = RouteHandler.GetRewritePath(requestPath);
+                Context.RewritePath(rewritePath);
+            }
         }
     }
 }
