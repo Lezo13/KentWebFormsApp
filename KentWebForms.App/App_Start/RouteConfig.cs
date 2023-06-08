@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Web;
 using System.Web.Routing;
+using KentWebForms.Infrastructure.Routing;
 using Microsoft.AspNet.FriendlyUrls;
 
 namespace KentWebForms.App
@@ -13,6 +14,14 @@ namespace KentWebForms.App
             var settings = new FriendlyUrlSettings();
             settings.AutoRedirectMode = RedirectMode.Permanent;
             routes.EnableFriendlyUrls(settings);
+            MapRoutes(routes);
+        }
+
+        private static void MapRoutes(RouteCollection routes)
+        {
+            MainRoutes.MapRoutes(routes);
+            AccountRoutes.MapRoutes(routes);
+            ErrorRoutes.MapRoutes(routes);
         }
     }
 }
