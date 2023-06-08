@@ -21,11 +21,6 @@
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
         }
 
-        void Application_BeginRequest(object sender, EventArgs e)
-        {
-            this.HandleRouting();
-        }
-
         void Application_Error(object sender, EventArgs e)
         {
             var exception = Server.GetLastError();
@@ -35,19 +30,8 @@
             {
                 // Redirect to custom 404 page
                 Server.ClearError();
-                string notFoundPage = RouteHandler.GetNotFoundRoute();
+                string notFoundPage = "/not-found";
                 Response.Redirect(notFoundPage);
-            }
-        }
-
-        private void HandleRouting()
-        {
-            string requestPath = Request.Path.ToLower().Replace(".aspx", string.Empty);
-
-            if (RouteHandler.MatchRoute(requestPath))
-            {
-                string rewritePath = RouteHandler.GetRewritePath(requestPath);
-                Context.RewritePath(rewritePath);
             }
         }
     }
