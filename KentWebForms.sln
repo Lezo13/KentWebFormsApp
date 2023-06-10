@@ -8,10 +8,19 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{50749F37-F597-4C31-B4F5-07D4C02D5043}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{5CB88C0D-07C2-4048-B90D-24364D4A3DA9}"
+	ProjectSection(SolutionItems) = preProject
+		KentWebForms.App\Web.config = KentWebForms.App\Web.config
+		KentWebForms.App\Web.Debug.config = KentWebForms.App\Web.Debug.config
+		KentWebForms.App\Web.Release.config = KentWebForms.App\Web.Release.config
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KentWebForms.Infrastructure", "KentWebForms.Infrastructure\KentWebForms.Infrastructure.csproj", "{00C28B41-C082-4686-B18C-A774BA566B72}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "KentWebForms.Data", "KentWebForms.Data\KentWebForms.Data.sqlproj", "{4997AD09-DBD5-4D3A-92C7-F9291D6C3390}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{07253552-F5C2-4863-A9BB-E0E0445B530F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KentWebForms.Services.Course", "KentWebForms.Services.Course\KentWebForms.Services.Course.csproj", "{28DE0B0A-8ABA-4CD4-A353-C25443F61CF7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +42,10 @@ Global
 		{4997AD09-DBD5-4D3A-92C7-F9291D6C3390}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4997AD09-DBD5-4D3A-92C7-F9291D6C3390}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4997AD09-DBD5-4D3A-92C7-F9291D6C3390}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{28DE0B0A-8ABA-4CD4-A353-C25443F61CF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28DE0B0A-8ABA-4CD4-A353-C25443F61CF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28DE0B0A-8ABA-4CD4-A353-C25443F61CF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28DE0B0A-8ABA-4CD4-A353-C25443F61CF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +54,7 @@ Global
 		{29BD79B3-7DF7-4E20-AE80-57E729D82FBF} = {50749F37-F597-4C31-B4F5-07D4C02D5043}
 		{00C28B41-C082-4686-B18C-A774BA566B72} = {5CB88C0D-07C2-4048-B90D-24364D4A3DA9}
 		{4997AD09-DBD5-4D3A-92C7-F9291D6C3390} = {5CB88C0D-07C2-4048-B90D-24364D4A3DA9}
+		{28DE0B0A-8ABA-4CD4-A353-C25443F61CF7} = {07253552-F5C2-4863-A9BB-E0E0445B530F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EB7E59B3-29D9-492D-B8B6-C68D60CFDDA7}

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Web;
 using System.Web.Routing;
-using KentWebForms.Infrastructure.Routing;
+using KentWebForms.Infrastructure.Mapping.Routing;
 using Microsoft.AspNet.FriendlyUrls;
 
 namespace KentWebForms.App

@@ -39,6 +39,7 @@
         {
             // Code that runs on application end
             UnityWebApiActivator.Shutdown();
+            
         }
     }
 }
