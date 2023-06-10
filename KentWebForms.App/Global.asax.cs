@@ -8,13 +8,13 @@
     using System.Data.Entity;
     using KentWebForms.App.Models;
     using KentWebForms.App.Migrations;
-    using KentWebForms.Infrastructure.Routing;
 
     public class Global : HttpApplication
     {
         void Application_Start(object sender, EventArgs e)
         {
             // Code that runs on application startup
+            UnityWebApiActivator.Start();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
@@ -33,6 +33,12 @@
                 string notFoundPage = "/not-found";
                 Response.Redirect(notFoundPage);
             }
+        }
+
+        void Application_End(object sender, EventArgs e)
+        {
+            // Code that runs on application end
+            UnityWebApiActivator.Shutdown();
         }
     }
 }
