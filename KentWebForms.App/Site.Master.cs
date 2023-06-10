@@ -1,12 +1,11 @@
 ﻿namespace KentWebForms.App
 {
     using System;
-    using System.Security.Claims;
-    using System.Security.Principal;
     using System.Web;
     using System.Web.Security;
     using System.Web.UI;
     using System.Web.UI.WebControls;
+    using KentWebForms.Infrastructure.Constants;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
 
@@ -69,6 +68,7 @@
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.CheckRecentRegistration();
             this.ManageNavBarDisplay();
         }
 
@@ -127,6 +127,22 @@
             }
 
             return roleName;
+        }
+
+        private void CheckRecentRegistration()
+        {
+            if (Session[RegistrationConstants.RecentlyRegistered] != null && (bool)Session[RegistrationConstants.RecentlyRegistered])
+            {
+                this.ShowSuccessToastr("Registered Successfully!", "Welcome");
+                Session.Remove(RegistrationConstants.RecentlyRegistered);
+            }
+        }
+
+        private void ShowSuccessToastr(string message, string title)
+        {
+            string options = "{positionClass: 'toast-top-center', timeOut: 3000}";
+            string script = string.Format("toastr.success('{0}', '{1}', {2});", message, title, options);
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "ToastrSuccess", script, true);
         }
     }
 
