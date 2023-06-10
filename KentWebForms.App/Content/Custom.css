@@ -1,0 +1,31 @@
+﻿.center-xy {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.logout__section {
+    text-align: center;
+    font-weight: bold;
+}
+
+    .logout__section i {
+        font-weight: bold;
+    }
+
+.name__tag {
+    color: white !important;
+    font-weight: bold;
+}
+
+.role__badge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+}
+
+    .role__badge .badge {
+        padding: 0.5rem 1rem;
+    }

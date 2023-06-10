@@ -13,7 +13,7 @@ namespace KentWebForms.App.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202306081058134_Initial"; }
+            get { return "202306091901563_Initial"; }
         }
         
         string IMigrationMetadata.Source
