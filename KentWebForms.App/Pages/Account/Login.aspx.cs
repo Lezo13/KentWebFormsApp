@@ -3,6 +3,8 @@
     using System;
     using System.Web;
     using System.Web.UI;
+    using System.Web.UI.WebControls;
+    using KentWebForms.Infrastructure.Models.Accounts;
     using Microsoft.AspNet.Identity.Owin;
 
     public partial class Login : Page
@@ -23,14 +25,17 @@
         {
             if (IsValid)
             {
-                // Validate the user password
-                var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
                 var signinManager = Context.GetOwinContext().GetUserManager<ApplicationSignInManager>();
 
-                // This doen't count login failures towards account lockout
-                // To enable password failures to trigger lockout, change to shouldLockout: true
-                var result = signinManager.PasswordSignIn(Email.Text, Password.Text, RememberMe.Checked, shouldLockout: false);
-                var test = Request.QueryString["ReturnUrl"];
+                var loginModel = new LoginModel()
+                {
+                    Username = Username.Text,
+                    Password = Password.Text,
+                    RememberMe = RememberMe.Checked
+                };
+
+                var result = signinManager.PasswordSignIn(loginModel.Username, loginModel.Password, loginModel.RememberMe, shouldLockout: false);
+
                 switch (result)
                 {
                     case SignInStatus.Success:
@@ -42,6 +47,21 @@
                         ErrorMessage.Visible = true;
                         break;
                 }
+            }
+        }
+
+        protected void ValidatePassword(object source, ServerValidateEventArgs args)
+        {
+            string password = Password.Text.Trim();
+            if (string.IsNullOrEmpty(password))
+            {
+                Password.CssClass += " validation-failed";
+                args.IsValid = false;
+            }
+            else
+            {
+                Password.CssClass = Password.CssClass.Replace(" validation-failed", "");
+                args.IsValid = true;
             }
         }
     }

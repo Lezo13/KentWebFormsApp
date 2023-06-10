@@ -1,11 +1,14 @@
 ﻿namespace KentWebForms.App
 {
     using System;
+    using System.Security.Claims;
+    using System.Security.Principal;
     using System.Web;
     using System.Web.Security;
     using System.Web.UI;
     using System.Web.UI.WebControls;
     using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.Owin;
 
     public partial class SiteMaster : MasterPage
     {
@@ -76,9 +79,9 @@
 
         private void ManageNavBarDisplay()
         {
-            string currentRoute = Request.Path.ToLower();
+            string currentRoute = Request.Path.ToLower().TrimStart('/');
 
-            if (currentRoute.Contains("notfound"))
+            if (currentRoute.StartsWith("not-found"))
             {
                 navBar.Visible = false;
             }
@@ -86,6 +89,44 @@
             {
                 navBar.Visible = true;
             }
+        }
+
+        protected string GetFullName()
+        {
+            var currentUser = HttpContext.Current.User;
+         
+            string fullName = "No name specified";
+
+            if (currentUser != null)
+            {
+                var userManager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                var user = userManager.FindByName(currentUser.Identity.Name);
+                fullName = string.Format("{0} {1}", user.FirstName, user.LastName);
+            }
+
+            return fullName;
+        }
+
+        protected string GetRoleName()
+        {
+            var currentUser = HttpContext.Current.User;
+
+            string roleName = "Unassigned";
+
+            if (currentUser.Identity.IsAuthenticated)
+            {
+                var userManager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                var roleManager = Context.GetOwinContext().Get<ApplicationRoleManager>();
+                var user = userManager.FindByName(currentUser.Identity.Name);
+                if (user != null)
+                {
+                    var roles = userManager.GetRoles(user.Id);
+
+                    roleName = roles[0];
+                }
+            }
+
+            return roleName;
         }
     }
 
