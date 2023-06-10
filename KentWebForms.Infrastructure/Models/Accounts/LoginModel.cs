@@ -1,5 +1,4 @@
-﻿
-namespace KentWebForms.Infrastructure.Models.Accounts
+﻿namespace KentWebForms.Infrastructure.Models.Accounts
 {
     public class LoginModel
     {

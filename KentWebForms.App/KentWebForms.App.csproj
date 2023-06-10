@@ -231,6 +231,7 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Migrations\202306091901563_Initial.cs" />
     <Compile Include="Migrations\202306091901563_Initial.designer.cs">
       <DependentUpon>202306091901563_Initial.cs</DependentUpon>
@@ -308,7 +309,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
