@@ -11,6 +11,21 @@
     {
         private static string apiEndpoint = "https://localhost:44388/api";
 
+        public static async Task<Response<TData>> Get<TData>(string apiUrl)
+        {
+            string fullApiUrl = string.Format("{0}/{1}", apiEndpoint, apiUrl);
+
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage httpResponse = await client.GetAsync(fullApiUrl);
+
+                string jsonString = await httpResponse.Content.ReadAsStringAsync();
+                var response = JsonConvert.DeserializeObject<Response<TData>>(jsonString);
+
+                return response;
+            }
+        }
+
         public static async Task<Response<TData>> Get<TParam, TData>(string apiUrl, TParam payload)
         {
             var parameters = ConverterUtils.ModelToDictionary(payload);
@@ -22,26 +37,25 @@
                 HttpResponseMessage httpResponse = await client.GetAsync(fullApiUrl);
 
                 string jsonString = await httpResponse.Content.ReadAsStringAsync();
-                var parsedJson = JsonConvert.DeserializeObject(jsonString, typeof(TData));
-
-                Response<TData> response = new Response<TData>((TData)parsedJson, httpResponse.StatusCode);
+                var response = JsonConvert.DeserializeObject<Response<TData>>(jsonString);
 
                 return response;
             }
         }
 
-        public static async Task<Response<TData>> Get<TData>(string apiUrl)
+        public static async Task<Response> Post<TParam>(string apiUrl, TParam payload)
         {
             string fullApiUrl = string.Format("{0}/{1}", apiEndpoint, apiUrl);
+            string jsonPayload = JsonConvert.SerializeObject(payload);
+            HttpContent bodyData = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
 
             using (HttpClient client = new HttpClient())
             {
-                HttpResponseMessage httpResponse = await client.GetAsync(fullApiUrl);
+
+                HttpResponseMessage httpResponse = await client.PostAsync(fullApiUrl, bodyData);
 
                 string jsonString = await httpResponse.Content.ReadAsStringAsync();
-                var parsedJson = JsonConvert.DeserializeObject(jsonString, typeof(TData));
-
-                Response<TData> response = new Response<TData>((TData)parsedJson, httpResponse.StatusCode);
+                var response = JsonConvert.DeserializeObject<Response>(jsonString);
 
                 return response;
             }
@@ -59,9 +73,25 @@
                 HttpResponseMessage httpResponse = await client.PostAsync(fullApiUrl, bodyData);
 
                 string jsonString = await httpResponse.Content.ReadAsStringAsync();
-                var parsedJson = JsonConvert.DeserializeObject(jsonString, typeof(TData));
+                var response = JsonConvert.DeserializeObject<Response<TData>>(jsonString);
 
-                Response<TData> response = new Response<TData>((TData)parsedJson, httpResponse.StatusCode);
+                return response;
+            }
+        }
+
+        public static async Task<Response> Put<TParam>(string apiUrl, TParam payload)
+        {
+            string fullApiUrl = string.Format("{0}/{1}", apiEndpoint, apiUrl);
+            string jsonPayload = JsonConvert.SerializeObject(payload);
+            HttpContent bodyData = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
+
+            using (HttpClient client = new HttpClient())
+            {
+
+                HttpResponseMessage httpResponse = await client.PutAsync(fullApiUrl, bodyData);
+
+                string jsonString = await httpResponse.Content.ReadAsStringAsync();
+                var response = JsonConvert.DeserializeObject<Response>(jsonString);
 
                 return response;
             }
@@ -79,9 +109,24 @@
                 HttpResponseMessage httpResponse = await client.PutAsync(fullApiUrl, bodyData);
 
                 string jsonString = await httpResponse.Content.ReadAsStringAsync();
-                var parsedJson = JsonConvert.DeserializeObject(jsonString, typeof(TData));
+                var response = JsonConvert.DeserializeObject<Response<TData>>(jsonString);
 
-                Response<TData> response = new Response<TData>((TData)parsedJson, httpResponse.StatusCode);
+                return response;
+            }
+        }
+
+        public static async Task<Response> Delete<TParam>(string apiUrl, TParam payload)
+        {
+            var parameters = ConverterUtils.ModelToDictionary(payload);
+            var queryString = new FormUrlEncodedContent(parameters);
+            string fullApiUrl = string.Format("{0}/{1}?{2}", apiEndpoint, apiUrl, await queryString.ReadAsStringAsync());
+
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage httpResponse = await client.DeleteAsync(fullApiUrl);
+
+                string jsonString = await httpResponse.Content.ReadAsStringAsync();
+                var response = JsonConvert.DeserializeObject<Response>(jsonString);
 
                 return response;
             }
@@ -98,9 +143,7 @@
                 HttpResponseMessage httpResponse = await client.DeleteAsync(fullApiUrl);
 
                 string jsonString = await httpResponse.Content.ReadAsStringAsync();
-                var parsedJson = JsonConvert.DeserializeObject(jsonString, typeof(TData));
-
-                Response<TData> response = new Response<TData>((TData)parsedJson, httpResponse.StatusCode);
+                var response = JsonConvert.DeserializeObject<Response<TData>>(jsonString);
 
                 return response;
             }

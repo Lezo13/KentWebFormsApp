@@ -1,4 +1,4 @@
-﻿namespace KentWebForms.Infrastructure.Routing
+﻿namespace KentWebForms.Infrastructure.Mapping.Routing
 {
     using System.Web.Routing;
 

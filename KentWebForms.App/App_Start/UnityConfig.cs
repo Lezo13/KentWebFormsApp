@@ -24,6 +24,7 @@ namespace KentWebForms.App
         public static void RegisterTypes(IUnityContainer container)
         {
             Infrastructure.InjectInfrastructure(container);
+            CourseServices.InjectCourseServices(container);
         }
     }
 }

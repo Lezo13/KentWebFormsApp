@@ -183,6 +183,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Content\Courses.css" />
     <Content Include="Content\Custom.css" />
     <Content Include="Content\Images\login_logo.png" />
     <Content Include="Content\NotFound.css" />
@@ -210,6 +211,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Pages\Account\Web.config" />
     <Content Include="Pages\Errors\NotFound.aspx" />
+    <Content Include="Pages\Courses.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\toastr.less" />
@@ -252,6 +254,7 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityWebApiActivator.cs" />
     <Compile Include="Controllers\CourseController.cs" />
+    <Compile Include="Injection\CourseServices.cs" />
     <Compile Include="Injection\Infrastructure.cs" />
     <Compile Include="Migrations\202306091901563_Initial.cs" />
     <Compile Include="Migrations\202306091901563_Initial.designer.cs">
@@ -302,6 +305,13 @@
     <Compile Include="Pages\Errors\NotFound.aspx.designer.cs">
       <DependentUpon>NotFound.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Courses.aspx.cs">
+      <DependentUpon>Courses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Courses.aspx.designer.cs">
+      <DependentUpon>Courses.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\StorageService.cs" />
     <Compile Include="Services\AccountService.cs" />
@@ -347,6 +357,10 @@
     <ProjectReference Include="..\KentWebForms.Infrastructure\KentWebForms.Infrastructure.csproj">
       <Project>{00c28b41-c082-4686-b18c-a774ba566b72}</Project>
       <Name>KentWebForms.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KentWebForms.Services.Course\KentWebForms.Services.Course.csproj">
+      <Project>{28de0b0a-8aba-4cd4-a353-c25443f61cf7}</Project>
+      <Name>KentWebForms.Services.Course</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

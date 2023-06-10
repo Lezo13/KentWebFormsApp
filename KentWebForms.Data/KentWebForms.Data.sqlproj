@@ -61,4 +61,14 @@
     <Folder Include="Seed" />
     <Folder Include="Scripts" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Seed\InsertCourses.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="StoredProcedures\sp_GetCourses.sql" />
+    <Build Include="Tables\Courses.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\PostDeployment.sql" />
+  </ItemGroup>
 </Project>

@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[Courses] (
+	[CourseId] UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(),
+	[CourseTitle] VARCHAR(500) NOT NULL,
+	[CourseCategory] VARCHAR(200) NULL,
+	[CourseDescription] VARCHAR(1000) NULL,
+	[CourseDisplayImg] NVARCHAR(MAX) NULL,
+	[CourseCoverImg] NVARCHAR(MAX) NULL,
+	[Hidden] BIT NOT NULL DEFAULT 0,
+	[DateCreated] DATETIME NOT NULL DEFAULT GETDATE(),
+	[DateUpdated] DATETIME NOT NULL DEFAULT GETDATE(),
+
+    CONSTRAINT [PK_Course] PRIMARY KEY CLUSTERED ([CourseId] ASC)
+);
