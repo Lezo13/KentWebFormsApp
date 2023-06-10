@@ -6,14 +6,14 @@
     using System.Web.UI;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
-    using Owin;
     using KentWebForms.App.Models;
-    using Microsoft.AspNet.Identity.EntityFramework;
+    using KentWebForms.Infrastructure.Constants;
 
     public partial class Register : Page
     {
-        protected void CreateUser_Click(object sender, EventArgs e)
+        protected void RegisterUser_Click(object sender, EventArgs e)
         {
+
             var roleManager = Context.GetOwinContext().Get<ApplicationRoleManager>();
             var userManager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
@@ -22,6 +22,9 @@
 
             if (result.Succeeded)
             {
+                // Fix Toastr won't show
+                //this.ShowSuccessToastr("Successfully Registered", "Welcome");
+                Session[RegistrationConstants.RecentlyRegistered] = true;
                 var selectedRole = Role.Text;
                 var role = roleManager.FindByName(selectedRole);
                 userManager.AddToRole(user.Id, role.Name);

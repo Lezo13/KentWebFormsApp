@@ -1,6 +1,11 @@
 ﻿<%@ Page Title="Register" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="KentWebForms.App.Pages.Account.Register" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
+    <asp:PlaceHolder runat="server">
+         <%:Scripts.Render("~/bundles/toastr") %>
+    </asp:PlaceHolder>
+
+
     <h2><%: Title %>.</h2>
     <p class="text-danger">
         <asp:Literal runat="server" ID="ErrorMessage" />
@@ -72,7 +77,7 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <asp:Button runat="server" OnClick="CreateUser_Click" Text="Register" CssClass="btn btn-dark bg-primary" />
+                <asp:Button runat="server" OnClick="RegisterUser_Click" Text="Register" CssClass="btn btn-dark bg-primary" CausesValidation="true"/>
             </div>
         </div>
     </div>
