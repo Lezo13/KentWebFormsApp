@@ -8,6 +8,7 @@
     using System.Data.Entity;
     using KentWebForms.App.Models;
     using KentWebForms.App.Migrations;
+    using KentWebForms.Infrastructure.Mapping.RouteGuards;
 
     public class Global : HttpApplication
     {
@@ -40,6 +41,14 @@
             // Code that runs on application end
             UnityWebApiActivator.Shutdown();
             
+        }
+
+        void Application_AuthorizeRequest(object sender, EventArgs e)
+        {
+            if (MainGuard.BlockRoute(HttpContext.Current.User, Request))
+            {
+                Response.Redirect("~/");
+            }
         }
     }
 }

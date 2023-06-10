@@ -41,7 +41,7 @@
                 {
                     case SignInStatus.Success:
                         StorageService.SetLoginPrompt(Session);
-                        IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                        IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response, true);
                         break;
                     case SignInStatus.Failure:
                     default:

@@ -99,7 +99,7 @@ namespace KentWebForms.App
             return !string.IsNullOrEmpty(url) && ((url[0] == '/' && (url.Length == 1 || (url[1] != '/' && url[1] != '\\'))) || (url.Length > 1 && url[0] == '~' && url[1] == '/'));
         }
 
-        public static void RedirectToReturnUrl(string returnUrl, HttpResponse response)
+        public static void RedirectToReturnUrl(string returnUrl, HttpResponse response, bool loggedIn)
         {
             if (!String.IsNullOrEmpty(returnUrl) && IsLocalUrl(returnUrl))
             {
@@ -107,7 +107,8 @@ namespace KentWebForms.App
             }
             else
             {
-                response.Redirect("~/");
+                var url = loggedIn ? "~/courses" : "~/";
+                response.Redirect(url);
             }
         }
     }

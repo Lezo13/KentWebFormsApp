@@ -12,6 +12,7 @@
     {
         private CourseHttpService courseHttpService;
         protected List<Course> courses;
+
         public Courses()
         {
             this.courseHttpService = new CourseHttpService();
