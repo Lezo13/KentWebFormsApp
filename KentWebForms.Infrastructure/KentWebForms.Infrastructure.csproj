@@ -45,9 +45,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants\Sessions\RegistrationConstants.cs" />
+    <Compile Include="Constants\Sessions\AccountConstants.cs" />
     <Compile Include="Mapping\Routes\AccountRoutes.cs" />
     <Compile Include="Mapping\Routes\MainRoutes.cs" />
+    <Compile Include="Models\Accounts\UserProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Mapping\Routes\ErrorRoutes.cs" />
     <Compile Include="Models\Accounts\LoginModel.cs" />

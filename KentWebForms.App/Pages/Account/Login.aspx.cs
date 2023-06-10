@@ -4,6 +4,7 @@
     using System.Web;
     using System.Web.UI;
     using System.Web.UI.WebControls;
+    using KentWebForms.App.Services;
     using KentWebForms.Infrastructure.Models.Accounts;
     using Microsoft.AspNet.Identity.Owin;
 
@@ -39,6 +40,7 @@
                 switch (result)
                 {
                     case SignInStatus.Success:
+                        StorageService.SetLoginPrompt(Session);
                         IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
                         break;
                     case SignInStatus.Failure:
