@@ -46,12 +46,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\Sessions\AccountConstants.cs" />
+    <Compile Include="HttpServices\CourseHttpService.cs" />
+    <Compile Include="Helper\HttpHelper.cs" />
     <Compile Include="Mapping\Routes\AccountRoutes.cs" />
     <Compile Include="Mapping\Routes\MainRoutes.cs" />
+    <Compile Include="Models\Courses\Course.cs" />
     <Compile Include="Models\Accounts\UserProfile.cs" />
+    <Compile Include="Models\Response.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Mapping\Routes\ErrorRoutes.cs" />
     <Compile Include="Models\Accounts\LoginModel.cs" />
+    <Compile Include="Utils\ConverterUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
