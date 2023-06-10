@@ -22,15 +22,13 @@
 
             if (result.Succeeded)
             {
-                // Fix Toastr won't show
-                //this.ShowSuccessToastr("Successfully Registered", "Welcome");
                 StorageService.SetRecentRegistered(Session);
                 var selectedRole = Role.Text;
                 var role = roleManager.FindByName(selectedRole);
                 userManager.AddToRole(user.Id, role.Name);
                 signInManager.SignIn( user, isPersistent: false, rememberBrowser: false);
                 StorageService.SetLoginPrompt(Session);
-                IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response, true);
             }
             else 
             {
