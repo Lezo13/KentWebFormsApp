@@ -5,9 +5,12 @@
     using System.Web.Security;
     using System.Web.UI;
     using System.Web.UI.WebControls;
+    using KentWebForms.App.Services;
     using KentWebForms.Infrastructure.Constants;
+    using KentWebForms.Infrastructure.Models.Accounts;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
+    using Newtonsoft.Json;
 
     public partial class SiteMaster : MasterPage
     {
@@ -68,8 +71,9 @@
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.CheckRecentRegistration();
             this.ManageNavBarDisplay();
+            this.CheckRecentRegistration();
+            this.CheckLoginPrompt();
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
@@ -116,7 +120,6 @@
             if (currentUser.Identity.IsAuthenticated)
             {
                 var userManager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-                var roleManager = Context.GetOwinContext().Get<ApplicationRoleManager>();
                 var user = userManager.FindByName(currentUser.Identity.Name);
                 if (user != null)
                 {
@@ -129,12 +132,30 @@
             return roleName;
         }
 
+        private void StoreUserProfile()
+        {
+            var userProfile = AccountService.CreateUserProfile(Context);
+            if (userProfile != null)
+            {
+                StorageService.StoreUserProfile(Session, userProfile);
+            }
+        }
+
         private void CheckRecentRegistration()
         {
-            if (Session[RegistrationConstants.RecentlyRegistered] != null && (bool)Session[RegistrationConstants.RecentlyRegistered])
+            if (StorageService.GetRecentRegistered(Session))
             {
                 this.ShowSuccessToastr("Registered Successfully!", "Welcome");
-                Session.Remove(RegistrationConstants.RecentlyRegistered);
+                StorageService.ClearRecentRegistered(Session);
+            }
+        }
+
+        private void CheckLoginPrompt()
+        {
+            if (StorageService.GetLoginPrompt(Session))
+            {
+                this.StoreUserProfile();
+                StorageService.ClearLoginPrompt(Session);
             }
         }
 
