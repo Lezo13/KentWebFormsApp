@@ -7,9 +7,9 @@
 
     public static class CourseExtensions
     {
-        public static IEnumerable<Course> AsModel(this IEnumerable<CourseEntity> entities)
+        public static IEnumerable<UserCourse> AsModel(this IEnumerable<UserCourseEntity> entities)
         {
-            var result = Enumerable.Empty<Course>();
+            var result = Enumerable.Empty<UserCourse>();
             if (entities != null)
             {
                 result = entities.Select(entity => entity.AsModel());
@@ -18,18 +18,19 @@
             return result;
         }
 
-        public static Course AsModel(this CourseEntity entity)
+        public static UserCourse AsModel(this UserCourseEntity entity)
         {
-            var result = new Course
+            var result = new UserCourse
             {
                 Id = entity.CourseId,
                 Title = entity.CourseTitle,
                 Category = entity.CourseCategory,
                 DisplayImgBase64 = entity.CourseDisplayImg,
-                CoverImgBase64 = entity.CourseCoverImg,
-                Hidden = entity.Hidden,
+                State = entity.CourseState,
                 DateCreated = entity.DateCreated,
-                DateUpdated = entity.DateUpdated
+                DateUpdated = entity.DateUpdated,
+                UserId = entity.UserId,
+                Status = entity.Status
             };
 
             return result;

@@ -1,6 +1,7 @@
 ﻿namespace KentWebForms.App.Controllers
 {
     using KentWebForms.Infrastructure.Interfaces;
+    using KentWebForms.Infrastructure.Requests.Courses;
     using System.Diagnostics;
     using System.Net;
     using System.Threading.Tasks;
@@ -17,12 +18,12 @@
             this.service = service;
         }
 
-        // GET: api/course/courses
+        // GET: api/course/user_courses
         [HttpGet]
-        [Route("courses")]
-        public async Task<IHttpActionResult> GetCoursesAsync()
+        [Route("user_courses")]
+        public async Task<IHttpActionResult> GetCoursesAsync([FromUri] GetUserCoursesRequest request)
         {
-            var result = await this.service.GetCoursesAsync();
+            var result = await this.service.GetUserCoursesAsync(request);
             return Content((HttpStatusCode)result.StatusCode, result);
         }
     }

@@ -17,14 +17,14 @@
             this.sql = sql;
         }
 
-        public async Task<IEnumerable<CourseEntity>> GetCoursesAsync()
+        public async Task<IEnumerable<UserCourseEntity>> GetUserCoursesAsync(string userId)
         {
-            var result = Enumerable.Empty<CourseEntity>();
+            var result = Enumerable.Empty<UserCourseEntity>();
 
             try
             {
-                var command = CourseSqlCommandFactory.CreateGetCoursesSqlCommand();
-                result = await this.sql.ReadAsListAsync<CourseEntity>(command);
+                var command = CourseSqlCommandFactory.CreateGetUserCoursesSqlCommand(userId);
+                result = await this.sql.ReadAsListAsync<UserCourseEntity>(command);
             }
             catch (Exception ex)
             {

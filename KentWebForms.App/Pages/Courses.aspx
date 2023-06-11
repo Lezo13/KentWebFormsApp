@@ -13,6 +13,11 @@
                             <h5 class="card-title"><%# Eval("Title") %></h5>
                             <p class="card-text"><%# Eval("Category") %></p>
                         </div>
+                        <div class="card-body__right" runat="server">
+                            <span class="badge bg-primary course-status <%# GetStatusClass(Container.DataItem) %>">
+                                <%# GetStatus(Container.DataItem) %>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </ItemTemplate>

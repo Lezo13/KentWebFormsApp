@@ -70,7 +70,7 @@
             if (!string.IsNullOrEmpty(jsonString))
             {
                 userProfile = JsonConvert.DeserializeObject<UserProfile>(jsonString);
-            }
+            } 
             
             return userProfile;
         }

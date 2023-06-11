@@ -5,13 +5,15 @@
 
     public static class CourseSqlCommandFactory
     {
-        public static SqlCommand CreateGetCoursesSqlCommand()
+        public static SqlCommand CreateGetUserCoursesSqlCommand(string userId)
         {
-            var result = new SqlCommand("[sp_GetCourses]")
+            var result = new SqlCommand("[sp_GetUserCourses]")
             {
                 CommandType = CommandType.StoredProcedure,
                 CommandTimeout = 0
             };
+
+            result.Parameters.AddWithValue("@userId", userId);
 
             return result;
         }

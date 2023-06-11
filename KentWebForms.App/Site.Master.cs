@@ -129,15 +129,6 @@
             return roleName;
         }
 
-        private void StoreUserProfile()
-        {
-            var userProfile = AccountService.CreateUserProfile(Context);
-            if (userProfile != null)
-            {
-                StorageService.StoreUserProfile(Session, userProfile);
-            }
-        }
-
         private void CheckRecentRegistration()
         {
             if (StorageService.GetRecentRegistered(Session))
@@ -153,6 +144,15 @@
             {
                 this.StoreUserProfile();
                 StorageService.ClearLoginPrompt(Session);
+            }
+        }
+
+        private void StoreUserProfile()
+        {
+            var userProfile = AccountService.CreateUserProfile(Context);
+            if (userProfile != null)
+            {
+                StorageService.StoreUserProfile(Session, userProfile);
             }
         }
 

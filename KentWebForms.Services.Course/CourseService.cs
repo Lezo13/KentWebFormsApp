@@ -6,6 +6,7 @@
     using KentWebForms.Infrastructure.Interfaces;
     using KentWebForms.Infrastructure.Models;
     using KentWebForms.Infrastructure.Models.Courses;
+    using KentWebForms.Infrastructure.Requests.Courses;
     using KentWebForms.Services.Faculty.Extensions;
 
     public class CourseService : ICourseService
@@ -17,13 +18,13 @@
             this.gateway = gateway;
         }
 
-        public async Task<Response<IEnumerable<Course>>> GetCoursesAsync()
+        public async Task<Response<IEnumerable<UserCourse>>> GetUserCoursesAsync(GetUserCoursesRequest request)
         {
-            var result = new Response<IEnumerable<Course>>();
+            var result = new Response<IEnumerable<UserCourse>>();
 
             try
             {
-                result.Data = (await this.gateway.GetCoursesAsync()).AsModel();
+                result.Data = (await this.gateway.GetUserCoursesAsync(request.UserId)).AsModel();
                 result.SetSuccess();
             }
             catch (Exception ex)

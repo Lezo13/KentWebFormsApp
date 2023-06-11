@@ -1,3 +1,37 @@
 ﻿.card {
     height: 100%;
 }
+
+.card .card-img-top {
+    min-height: 150px;
+}
+
+.card .card-title {
+    min-height: 30px;
+}
+
+.card-body__right {
+    margin: 1rem;
+}
+
+.card-body__right .course-status {
+    float: right;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+}
+
+.course-status.default {
+    background-color: #FF9117 !important;
+}
+
+.course-status.in-progress {
+    background-color: #8DC356 !important;
+}
+
+.course-status.join {
+    background-color: #FF9117 !important;
+}
+
+.course-status.completed {
+    background-color: #DBCEE7 !important;
+}

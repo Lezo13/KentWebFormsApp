@@ -6,6 +6,6 @@
 
     public interface ICourseSqlDataGateway
     {
-        Task<IEnumerable<CourseEntity>> GetCoursesAsync();
+        Task<IEnumerable<UserCourseEntity>> GetUserCoursesAsync(string userId);
     }
 }

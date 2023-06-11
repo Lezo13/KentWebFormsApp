@@ -2,7 +2,7 @@
 {
     using System;
 
-    public class CourseEntity
+    public class UserCourseEntity
     {
         public Guid CourseId { get; set; }
 
@@ -10,16 +10,16 @@
 
         public string CourseCategory { get; set; }
 
-        public string CourseDescription { get; set; }
-
         public string CourseDisplayImg { get; set; }
 
-        public string CourseCoverImg { get; set; }
-
-        public bool Hidden { get; set; }
+        public string CourseState { get; set; }
 
         public DateTime DateCreated { get; set; }
 
         public DateTime DateUpdated { get; set; }
+
+        public string UserId { get; set; }
+
+        public string Status { get; set; }
     }
 }

@@ -67,6 +67,8 @@
   <ItemGroup>
     <Build Include="StoredProcedures\sp_GetCourses.sql" />
     <Build Include="Tables\Courses.sql" />
+    <Build Include="Tables\UserCourses.sql" />
+    <Build Include="Tables\Users.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\PostDeployment.sql" />
