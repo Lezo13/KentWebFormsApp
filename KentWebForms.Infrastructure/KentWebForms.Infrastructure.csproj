@@ -57,8 +57,9 @@
     <Compile Include="Mapping\RouteGuards\MainGuard.cs" />
     <Compile Include="Mapping\Routes\AccountRoutes.cs" />
     <Compile Include="Mapping\Routes\MainRoutes.cs" />
-    <Compile Include="Entities\Courses\CourseEntity.cs" />
-    <Compile Include="Models\Courses\Course.cs" />
+    <Compile Include="Entities\Courses\UserCourseEntity.cs" />
+    <Compile Include="Requests\Courses\GetUserCoursesRequest.cs" />
+    <Compile Include="Models\Courses\UserCourse.cs" />
     <Compile Include="Models\Accounts\UserProfile.cs" />
     <Compile Include="Models\Response.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

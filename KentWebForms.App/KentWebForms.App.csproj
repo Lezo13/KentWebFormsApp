@@ -256,9 +256,9 @@
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Injection\CourseServices.cs" />
     <Compile Include="Injection\Infrastructure.cs" />
-    <Compile Include="Migrations\202306091901563_Initial.cs" />
-    <Compile Include="Migrations\202306091901563_Initial.designer.cs">
-      <DependentUpon>202306091901563_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\202306110522098_Initial.cs" />
+    <Compile Include="Migrations\202306110522098_Initial.designer.cs">
+      <DependentUpon>202306110522098_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Pages\Account\Login.aspx.cs">
@@ -364,8 +364,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202306091901563_Initial.resx">
-      <DependentUpon>202306091901563_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202306110522098_Initial.resx">
+      <DependentUpon>202306110522098_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
