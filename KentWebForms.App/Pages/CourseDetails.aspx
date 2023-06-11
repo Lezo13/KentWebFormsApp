@@ -26,7 +26,7 @@
                         </asp:Panel>
 
                         <asp:Panel runat="server" ID="completedBtns">
-                            <asp:Button runat="server" CssClass="btn btn-warning" ID="Button5" Text="Course completed" Enabled="false" />
+                            <asp:Button runat="server" CssClass="btn btn-light" ID="Button5" Text="Course completed" Enabled="false" />
                         </asp:Panel>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                 <i class="fa fa-lock" aria-hidden="true"></i> Unlock by joining the course
             </p>
             <div class="action-btns">
-                <asp:Button runat="server" ID="btnComplete" CssClass="btn btn-primary" Text="Completed?" />
+                <asp:Button runat="server" ID="btnComplete" CssClass="btn btn-primary" Text="Completed?" OnClick="CompleteCourse" />
             </div>
         </div>
     </div>

@@ -27,6 +27,11 @@
             this.InsertUserCourse();
         }
 
+        protected void CompleteCourse(object sender, EventArgs e)
+        {
+            this.UpdateUserCourse();
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             var courseId = RouteData.Values["id"] as string;
@@ -77,6 +82,15 @@
             this.course.Status = "In Progress";
             this.course.DateEnrolled = DateTime.Now;
             var response = await this.courseHttpService.InsertUserCourse(this.course);
+            this.ManageStatusDisplay();
+        }
+
+        private async void UpdateUserCourse()
+        {
+            this.course.UserId = this.userProfile.UserId;
+            this.course.Status = "Completed";
+            this.course.DateCompleted = DateTime.Now;
+            var response = await this.courseHttpService.UpdateUserCourse(this.course);
             this.ManageStatusDisplay();
         }
 

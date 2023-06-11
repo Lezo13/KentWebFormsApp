@@ -29,5 +29,12 @@
             var response = await HttpHelper.Post(apiRoute, request);
             return response;
         }
+
+        public async Task<Response> UpdateUserCourse(UserCourse request)
+        {
+            string apiRoute = "course/user_course";
+            var response = await HttpHelper.Put(apiRoute, request);
+            return response;
+        }
     }
 }
