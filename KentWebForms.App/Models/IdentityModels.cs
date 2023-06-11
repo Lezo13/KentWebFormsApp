@@ -104,7 +104,7 @@ namespace KentWebForms.App
             }
             else
             {
-                var url = loggedIn ? "~/courses" : "~/";
+                var url = loggedIn ? "~/Courses" : "~/";
                 response.Redirect(url);
             }
         }
