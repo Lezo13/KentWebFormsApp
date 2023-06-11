@@ -22,7 +22,7 @@
 
                         <asp:Panel runat="server" ID="joinedBtns" CssClass="action-btns">
                             <asp:Button runat="server" CssClass="btn btn-warning text-white" ID="doingBtn" Text="I am doing this!" Enabled="false" />
-                            <asp:Button runat="server" CssClass="btn btn-danger" ID="leaveBtn" Text="Leave this course" />
+                            <asp:Button runat="server" CssClass="btn btn-danger" ID="leaveBtn" Text="Leave this course" OnClick="LeaveCourse" />
                         </asp:Panel>
 
                         <asp:Panel runat="server" ID="completedBtns">

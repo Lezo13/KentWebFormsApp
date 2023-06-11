@@ -1,6 +1,7 @@
 ﻿namespace KentWebForms.App.Pages
 {
     using System;
+    using System.Net;
     using System.Web;
     using System.Web.UI;
     using KentWebForms.App.Services;
@@ -30,6 +31,11 @@
         protected void CompleteCourse(object sender, EventArgs e)
         {
             this.UpdateUserCourse();
+        }
+
+        protected void LeaveCourse(object sender, EventArgs e)
+        {
+            this.DeleteUserCourse();
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -82,7 +88,10 @@
             this.course.Status = "In Progress";
             this.course.DateEnrolled = DateTime.Now;
             var response = await this.courseHttpService.InsertUserCourse(this.course);
-            this.ManageStatusDisplay();
+            if (response.StatusCode == (int)HttpStatusCode.OK)
+            {
+                this.ManageStatusDisplay();
+            }
         }
 
         private async void UpdateUserCourse()
@@ -91,7 +100,23 @@
             this.course.Status = "Completed";
             this.course.DateCompleted = DateTime.Now;
             var response = await this.courseHttpService.UpdateUserCourse(this.course);
-            this.ManageStatusDisplay();
+            if (response.StatusCode == (int)HttpStatusCode.OK)
+            {
+                this.ManageStatusDisplay();
+            }
+        }
+
+        private async void DeleteUserCourse()
+        {
+            var request = new DeleteUserCourseRequest { CourseId = this.course.Id, UserId = this.userProfile.UserId};
+            var response = await this.courseHttpService.DeleteUserCourse(request);
+            if (response.StatusCode == (int)HttpStatusCode.OK)
+            {
+                this.course.Status = null;
+                this.course.UserId = null;
+                this.ManageStatusDisplay();
+            }
+          
         }
 
         private void ManageStatusDisplay()
