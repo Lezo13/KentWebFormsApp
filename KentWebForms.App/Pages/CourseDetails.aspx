@@ -17,7 +17,7 @@
                 <div class="header--right">
                     <div class="course__btns">
                         <asp:Panel runat="server" ID="openBtns">
-                            <asp:Button runat="server" CssClass="btn btn-success" ID="Button3" Text="Join course" />
+                            <asp:Button runat="server" CssClass="btn btn-success" ID="Button3" Text="Join course" OnClick="JoinCourse"/>
                         </asp:Panel>
 
                         <asp:Panel runat="server" ID="joinedBtns" CssClass="action-btns">

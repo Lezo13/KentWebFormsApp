@@ -53,5 +53,59 @@
 
             return result;
         }
+
+        public async Task<Response> InsertUserCourseAsync(UserCourse request)
+        {
+            var result = new Response();
+
+            try
+            {
+                await this.gateway.InsertUserCourseAsync(request.AsEntity());
+                result.SetSuccess();
+            }
+            catch (Exception ex)
+            {
+                result.SetFail(ex.Message);
+                throw new Exception();
+            }
+
+            return result;
+        }
+
+        public async Task<Response> UpdateUserCourseAsync(UserCourse request)
+        {
+            var result = new Response();
+
+            try
+            {
+                await this.gateway.UpdateUserCourseAsync(request.AsEntity());
+                result.SetSuccess();
+            }
+            catch (Exception ex)
+            {
+                result.SetFail(ex.Message);
+                throw new Exception();
+            }
+
+            return result;
+        }
+
+        public async Task<Response> DeleteUserCourseAsync(DeleteUserCourseRequest request)
+        {
+            var result = new Response();
+
+            try
+            {
+                await this.gateway.DeleteUserCourseAsync(request.CourseId, request.UserId);
+                result.SetSuccess();
+            }
+            catch (Exception ex)
+            {
+                result.SetFail(ex.Message);
+                throw new Exception();
+            }
+
+            return result;
+        }
     }
 }

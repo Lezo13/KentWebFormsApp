@@ -34,7 +34,7 @@
             return result;
         }
 
-        public async Task<UserCourseEntity> GetUserCourseAsync(string courseId, string userId)
+        public async Task<UserCourseEntity> GetUserCourseAsync(Guid courseId, string userId)
         {
             var result = new UserCourseEntity();
 
@@ -49,6 +49,45 @@
             }
 
             return result;
+        }
+
+        public async Task InsertUserCourseAsync(UserCourseEntity entity)
+        {
+            try
+            {
+                var command = CourseSqlCommandFactory.CreateInsertUserCourseSqlCommand(entity);
+                await this.sql.ExecuteAsync(command);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception();
+            }
+        }
+
+        public async Task UpdateUserCourseAsync(UserCourseEntity entity)
+        {
+            try
+            {
+                var command = CourseSqlCommandFactory.CreateUpdateUserCourseSqlCommand(entity);
+                await this.sql.ExecuteAsync(command);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception();
+            }
+        }
+
+        public async Task DeleteUserCourseAsync(Guid courseId, string userId)
+        {
+            try
+            {
+                var command = CourseSqlCommandFactory.CreateDeleteUserCourseSqlCommand(courseId, userId);
+                await this.sql.ExecuteAsync(command);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception();
+            }
         }
     }
 }

@@ -11,5 +11,11 @@
         Task<Response<IEnumerable<UserCourse>>> GetUserCoursesAsync(GetUserCoursesRequest request);
 
         Task<Response<UserCourse>> GetUserCourseAsync(GetUserCourseRequest request);
+
+        Task<Response> InsertUserCourseAsync(UserCourse request);
+
+        Task<Response> UpdateUserCourseAsync(UserCourse request);
+
+        Task<Response> DeleteUserCourseAsync(DeleteUserCourseRequest request);
     }
 }
