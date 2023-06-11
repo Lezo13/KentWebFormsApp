@@ -10,8 +10,8 @@ AS
       ,C.[DateUpdated]
       ,UC.[UserId]
       ,UC.[Status]
-  FROM [dbo].[Courses] as C
-  FULL OUTER JOIN [dbo].[UserCourses] as UC
-  ON C.[CourseId] = UC.[CourseId]
-  ORDER BY [DateUpdated], [DateCreated]
+    FROM [dbo].[Courses] as C
+    LEFT JOIN [dbo].[UserCourses] as UC
+    ON C.[CourseId] = UC.[CourseId] AND (UC.[UserId] IS NULL OR UC.UserId = @userId)
+    ORDER BY [DateUpdated], [DateCreated]
 RETURN 0

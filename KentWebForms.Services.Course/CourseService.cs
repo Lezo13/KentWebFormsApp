@@ -35,5 +35,23 @@
 
             return result;
         }
+
+        public async Task<Response<UserCourse>> GetUserCourseAsync(GetUserCourseRequest request)
+        {
+            var result = new Response<UserCourse>();
+
+            try
+            {
+                result.Data = (await this.gateway.GetUserCourseAsync(request.CourseId, request.UserId)).AsModel();
+                result.SetSuccess();
+            }
+            catch (Exception ex)
+            {
+                result.SetFail(ex.Message);
+                throw new Exception();
+            }
+
+            return result;
+        }
     }
 }

@@ -29,7 +29,7 @@
             string redirectPath = string.Empty;
 
             // Prevent Logged in user to access the specifed routes
-            var nonUserRoutes = new List<string>{ "default", "login", "register" };
+            var nonUserRoutes = new List<string>{ "default", "account/login", "account/register" };
             if (isAuthenticated && nonUserRoutes.Any(t => currentRoute.StartsWith(t)))
             {
                 redirectPath = "~/Courses";

@@ -7,9 +7,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px !important;
 }
+
+    *:not(h1):not(h2):not(h3):not(h4):not(h5) {
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px !important;
+    }
 
 body {
     background: #ecf0f3;

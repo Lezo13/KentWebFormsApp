@@ -8,6 +8,7 @@
         {
             routes.MapPageRoute("DefaultRoute", "Default.aspx", "~/Default.aspx");
             routes.MapPageRoute("Courses", "Courses", "~/Pages/Courses.aspx");
+            routes.MapPageRoute("CourseDetails", "courses/{id}", "~/Pages/CourseDetails.aspx");
         }
     }
 }

@@ -10,7 +10,11 @@
 
         public string CourseCategory { get; set; }
 
+        public string CourseDescription { get; set; }
+
         public string CourseDisplayImg { get; set; }
+
+        public string CourseCoverImg { get; set; }
 
         public string CourseState { get; set; }
 

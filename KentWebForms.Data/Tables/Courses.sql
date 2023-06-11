@@ -2,7 +2,7 @@
 	[CourseId] UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID(),
 	[CourseTitle] VARCHAR(500) NOT NULL,
 	[CourseCategory] VARCHAR(200) NULL,
-	[CourseDescription] VARCHAR(1000) NULL,
+	[CourseDescription] NVARCHAR(MAX) NULL,
 	[CourseDisplayImg] NVARCHAR(MAX) NULL,
 	[CourseCoverImg] NVARCHAR(MAX) NULL,
 	[CourseState] VARCHAR(250) NULL DEFAULT 'OPEN',
