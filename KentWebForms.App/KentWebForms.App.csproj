@@ -183,6 +183,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Content\CourseDetails.css" />
     <Content Include="Content\Courses.css" />
     <Content Include="Content\Custom.css" />
     <Content Include="Content\Images\login_logo.png" />
@@ -210,6 +211,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Pages\Account\Web.config" />
+    <Content Include="Pages\CourseDetails.aspx" />
     <Content Include="Pages\Errors\NotFound.aspx" />
     <Content Include="Pages\Courses.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -298,6 +300,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Pages\CourseDetails.aspx.cs">
+      <DependentUpon>CourseDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CourseDetails.aspx.designer.cs">
+      <DependentUpon>CourseDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Errors\NotFound.aspx.cs">
       <DependentUpon>NotFound.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

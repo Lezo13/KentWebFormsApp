@@ -33,5 +33,22 @@
 
             return result;
         }
+
+        public async Task<UserCourseEntity> GetUserCourseAsync(string courseId, string userId)
+        {
+            var result = new UserCourseEntity();
+
+            try
+            {
+                var command = CourseSqlCommandFactory.CreateGetUserCourseSqlCommand(courseId, userId);
+                result = await this.sql.ReadAsync<UserCourseEntity>(command);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception();
+            }
+
+            return result;
+        }
     }
 }

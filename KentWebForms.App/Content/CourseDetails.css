@@ -1,0 +1,64 @@
+﻿.course__body {
+    margin: 1rem 2rem;
+}
+
+.course__header .header--left {
+    flex-direction: row;
+    display: flex;
+    gap: 3rem;
+}
+
+.course__header .course_banner {
+    width: 100%;
+    height: 200px;
+    position: relative;
+}
+
+.course__header .header__panel {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    transform: translate(0, -100%);
+    background-color: rgba(0, 0, 0, 0.40);
+    color: white;
+    height: 75px;
+    width: 100%;
+}
+
+.header__panel .sub-details {
+    align-self: center;
+}
+
+.header__panel .display-img {
+    height: 125px;
+    width: 125px;
+    border: 5px solid white;
+    transform: translate(20%, -50%);
+}
+
+.course__btns {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    margin-right: 3rem;
+}
+
+.unlock__label {
+    margin-top: 2rem;
+    color: orange;
+    font-weight: bold;
+    font-size: 20px !important;
+    text-align: center;
+    bottom: 50%;
+    position: absolute;
+    left: 40%;
+    background-color: #0000006e;
+    padding: 2rem;
+    border-radius: 2rem;
+    user-select: none;
+}
+
+.unlock__label i {
+    font-size: 25px !important;
+    margin-right: 0.5rem;
+}

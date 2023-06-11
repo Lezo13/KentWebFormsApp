@@ -65,10 +65,11 @@
     <None Include="Seed\InsertCourses.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="StoredProcedures\sp_GetCourses.sql" />
+    <Build Include="StoredProcedures\sp_GetUserCourses.sql" />
     <Build Include="Tables\Courses.sql" />
     <Build Include="Tables\UserCourses.sql" />
     <Build Include="Tables\Users.sql" />
+    <Build Include="StoredProcedures\sp_GetUserCourse.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\PostDeployment.sql" />

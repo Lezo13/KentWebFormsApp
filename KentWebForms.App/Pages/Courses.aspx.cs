@@ -11,7 +11,7 @@
     using System.Threading.Tasks;
     using System.Web;
     using System.Web.UI;
-  
+    using System.Web.UI.WebControls;
 
     public partial class Courses : Page
     {
@@ -23,6 +23,25 @@
         public Courses()
         {
             this.courseHttpService = new CourseHttpService();
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                this.CheckLoggedIn();
+                this.userProfile = StorageService.GetUserProfile(Session);
+                this.LoadCourses();
+            }
+        }
+
+        protected void ViewCourse(object sender, EventArgs e)
+        {
+            LinkButton linkBtn = (LinkButton)sender;
+            string id = linkBtn.CommandArgument;
+
+            string url = "courses/" + id;
+            Response.Redirect(url);
         }
 
         protected string GetStatus(object dataItem)
@@ -57,13 +76,6 @@
             }
 
             return statusClass;
-        }
-
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            this.CheckLoggedIn();
-            this.userProfile = StorageService.GetUserProfile(Session);
-            this.LoadCourses();
         }
 
         private void CheckLoggedIn()

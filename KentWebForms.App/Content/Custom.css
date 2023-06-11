@@ -29,3 +29,28 @@
     .role__badge .badge {
         padding: 0.5rem 1rem;
     }
+
+.course__link {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+.container {
+    margin-top: 1rem;
+}
+
+.navbar {
+    margin-bottom: unset;
+}
+
+.lock-content {
+    filter: blur(5px);
+    user-select: none;
+}
+
+.action-btns {
+    display: flex;
+    gap: 2rem;
+}
