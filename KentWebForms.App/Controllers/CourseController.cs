@@ -1,6 +1,7 @@
 ﻿namespace KentWebForms.App.Controllers
 {
     using KentWebForms.Infrastructure.Interfaces;
+    using KentWebForms.Infrastructure.Models.Courses;
     using KentWebForms.Infrastructure.Requests.Courses;
     using System.Diagnostics;
     using System.Net;
@@ -33,6 +34,33 @@
         public async Task<IHttpActionResult> GetUserCourseAsync([FromUri] GetUserCourseRequest request)
         {
             var result = await this.service.GetUserCourseAsync(request);
+            return Content((HttpStatusCode)result.StatusCode, result);
+        }
+
+        // POST: api/course/user_course
+        [HttpPost]
+        [Route("user_course")]
+        public async Task<IHttpActionResult> InsertUserCourseAsync([FromBody] UserCourse request)
+        {
+            var result = await this.service.InsertUserCourseAsync(request);
+            return Content((HttpStatusCode)result.StatusCode, result);
+        }
+
+        // PUT: api/course/user_course
+        [HttpPut]
+        [Route("user_course")]
+        public async Task<IHttpActionResult> UpdateUserCourseAsync([FromBody] UserCourse request)
+        {
+            var result = await this.service.UpdateUserCourseAsync(request);
+            return Content((HttpStatusCode)result.StatusCode, result);
+        }
+
+        // DELETE: api/course/user_course
+        [HttpDelete]
+        [Route("user_course")]
+        public async Task<IHttpActionResult> DeleteUserCourseAsync([FromUri] DeleteUserCourseRequest request)
+        {
+            var result = await this.service.DeleteUserCourseAsync(request);
             return Content((HttpStatusCode)result.StatusCode, result);
         }
     }

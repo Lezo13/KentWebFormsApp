@@ -7,6 +7,26 @@
 
     public static class CourseExtensions
     {
+        public static UserCourseEntity AsEntity(this UserCourse entity)
+        {
+            var result = new UserCourseEntity
+            {
+                CourseId = entity.Id,
+                CourseTitle = entity.Title,
+                CourseCategory = entity.Category,
+                CourseDescription = entity.Description,
+                CourseDisplayImg = entity.DisplayImgBase64,
+                CourseCoverImg = entity.CoverImgBase64,
+                CourseState = entity.State,
+                DateEnrolled = entity.DateEnrolled,
+                DateCompleted = entity.DateCompleted,
+                UserId = entity.UserId,
+                Status = entity.Status
+            };
+
+            return result;
+        }
+
         public static IEnumerable<UserCourse> AsModel(this IEnumerable<UserCourseEntity> entities)
         {
             var result = Enumerable.Empty<UserCourse>();
@@ -29,8 +49,8 @@
                 DisplayImgBase64 = entity.CourseDisplayImg,
                 CoverImgBase64 = entity.CourseCoverImg,
                 State = entity.CourseState,
-                DateCreated = entity.DateCreated,
-                DateUpdated = entity.DateUpdated,
+                DateEnrolled = entity.DateEnrolled,
+                DateCompleted = entity.DateCompleted,
                 UserId = entity.UserId,
                 Status = entity.Status
             };

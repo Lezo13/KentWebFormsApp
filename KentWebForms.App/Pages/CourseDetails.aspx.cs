@@ -12,7 +12,7 @@
     public partial class CourseDetails : Page
     {
         protected UserCourse course;
-        protected string courseId;
+        protected Guid courseId;
 
         private UserProfile userProfile;
         private CourseHttpService courseHttpService;
@@ -22,25 +22,24 @@
             this.courseHttpService = new CourseHttpService();
         }
 
+        protected void JoinCourse(object sender, EventArgs e)
+        {
+            this.InsertUserCourse();
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                this.courseId = RouteData.Values["id"] as string;
+            var courseId = RouteData.Values["id"] as string;
+            this.courseId = !string.IsNullOrEmpty(courseId) ? Guid.Parse(courseId) : Guid.Empty;
 
-                if (string.IsNullOrEmpty(this.courseId))
-                {
-                    Response.Redirect("~/Courses");
-                }
-                else
-                {
-                    this.CheckLoggedIn();
-                    this.userProfile = StorageService.GetUserProfile(Session);
-                    this.LoadCourse();
-                }
+            if (this.courseId == Guid.Empty)
+            {
+                Response.Redirect("~/Courses");
             }
 
-          
+            this.CheckLoggedIn();
+            this.userProfile = StorageService.GetUserProfile(Session);
+            this.LoadCourse();
         }
 
         private void CheckLoggedIn()
@@ -69,6 +68,15 @@
             var response = await this.courseHttpService.GetUserCourse(request);
             this.course = response.Data;
             this.SetImages();
+            this.ManageStatusDisplay();
+        }
+
+        private async void InsertUserCourse()
+        {
+            this.course.UserId = this.userProfile.UserId;
+            this.course.Status = "In Progress";
+            this.course.DateEnrolled = DateTime.Now;
+            var response = await this.courseHttpService.InsertUserCourse(this.course);
             this.ManageStatusDisplay();
         }
 

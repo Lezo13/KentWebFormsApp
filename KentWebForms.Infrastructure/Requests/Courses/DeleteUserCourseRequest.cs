@@ -2,10 +2,10 @@
 
 namespace KentWebForms.Infrastructure.Requests.Courses
 {
-    public class GetUserCourseRequest
+    public class DeleteUserCourseRequest
     {
-        public Guid CourseId { get; set; }
-
         public string UserId { get; set; }
+
+        public Guid CourseId { get; set; }
     }
 }
