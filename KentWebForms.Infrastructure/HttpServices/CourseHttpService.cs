@@ -36,5 +36,12 @@
             var response = await HttpHelper.Put(apiRoute, request);
             return response;
         }
+
+        public async Task<Response> DeleteUserCourse(DeleteUserCourseRequest request)
+        {
+            string apiRoute = "course/user_course";
+            var response = await HttpHelper.Delete(apiRoute, request);
+            return response;
+        }
     }
 }
