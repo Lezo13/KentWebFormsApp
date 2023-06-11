@@ -45,9 +45,15 @@
 
         void Application_AuthorizeRequest(object sender, EventArgs e)
         {
+            var redirectionPath = MainGuard.RedirectRoute(HttpContext.Current.User, Request);
+
             if (MainGuard.BlockRoute(HttpContext.Current.User, Request))
             {
                 Response.Redirect("~/");
+            }
+            else if (!string.IsNullOrEmpty(redirectionPath))
+            {
+                Response.Redirect(redirectionPath);
             }
         }
     }

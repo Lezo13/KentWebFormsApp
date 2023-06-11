@@ -1,5 +1,7 @@
 ﻿namespace KentWebForms.Infrastructure.Mapping.RouteGuards
 {
+    using System.Collections.Generic;
+    using System.Linq;
     using System.Security.Principal;
     using System.Web;
 
@@ -18,6 +20,23 @@
             }
 
             return false;
+        }
+
+        public static string RedirectRoute(IPrincipal user, HttpRequest httpRequest)
+        {
+            string currentRoute = httpRequest.Path.ToLower().TrimStart('/');
+            var isAuthenticated = user.Identity.IsAuthenticated;
+            string redirectPath = string.Empty;
+
+            // Prevent Logged in user to access the specifed routes
+            var nonUserRoutes = new List<string>{ "default", "login", "register" };
+            if (isAuthenticated && nonUserRoutes.Any(t => currentRoute.StartsWith(t)))
+            {
+                redirectPath = "~/Courses";
+            }
+
+
+            return redirectPath;
         }
     }
 }
