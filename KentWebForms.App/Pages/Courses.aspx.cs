@@ -15,8 +15,10 @@
 
     public partial class Courses : Page
     {
-        protected List<UserCourse> courses;
+        protected List<UserCourse> userCourses;
+        protected List<Course> adminCourses;
 
+        protected bool IsAdminLoggedIn = false;
         private UserProfile userProfile;
         private CourseHttpService courseHttpService;
 
@@ -31,8 +33,18 @@
             {
                 this.CheckLoggedIn();
                 this.userProfile = StorageService.GetUserProfile(Session);
-                this.LoadCourses();
+                this.IsAdminLoggedIn = this.userProfile.RoleName.ToLower() == "admin";
+
+                if (this.IsAdminLoggedIn)
+                {
+                    this.LoadAdminCourses();
+                }
+                else
+                {
+                    this.LoadUserCourses();
+                }
             }
+      
         }
 
         protected void ViewCourse(object sender, EventArgs e)
@@ -46,6 +58,11 @@
 
         protected string GetStatus(object dataItem)
         {
+            if (this.IsAdminLoggedIn)
+            {
+                return string.Empty;
+            }
+
             var userCourse = (UserCourse)dataItem;
             TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
             var status = userCourse.Status ?? "Join";
@@ -55,6 +72,11 @@
 
         protected string GetStatusClass(object dataItem)
         {
+            if (this.IsAdminLoggedIn)
+            {
+                return string.Empty;
+            }
+
             var userCourse = (UserCourse)dataItem;
             string statusClass = "default";
             var status = userCourse.Status ?? "Join";
@@ -98,12 +120,20 @@
             }
         }
 
-        private async void LoadCourses()
+        private async void LoadUserCourses()
         {
             var request = new GetUserCoursesRequest { UserId = this.userProfile.UserId };
             var response = await this.courseHttpService.GetUserCourses(request);
-            this.courses = response.Data;
-            cardRepeater.DataSource = this.courses;
+            this.userCourses = response.Data;
+            cardRepeater.DataSource = this.userCourses;
+            cardRepeater.DataBind();
+        }
+
+        private async void LoadAdminCourses()
+        {
+            var response = await this.courseHttpService.GetCourses();
+            this.adminCourses = response.Data;
+            cardRepeater.DataSource = this.adminCourses;
             cardRepeater.DataBind();
         }
     }

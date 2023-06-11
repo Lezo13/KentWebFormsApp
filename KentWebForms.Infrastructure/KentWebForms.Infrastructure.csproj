@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\Sessions\AccountConstants.cs" />
+    <Compile Include="Entities\Courses\CourseEntity.cs" />
     <Compile Include="Extensions\DataReaderExtensions.cs" />
     <Compile Include="Interfaces\ICourseSqlDataGateway.cs" />
     <Compile Include="Interfaces\ICourseService.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Mapping\Routes\AccountRoutes.cs" />
     <Compile Include="Mapping\Routes\MainRoutes.cs" />
     <Compile Include="Entities\Courses\UserCourseEntity.cs" />
+    <Compile Include="Models\Courses\Course.cs" />
     <Compile Include="Requests\Courses\GetUserCourseRequest.cs" />
     <Compile Include="Requests\Courses\DeleteUserCourseRequest.cs" />
     <Compile Include="Requests\Courses\GetUserCoursesRequest.cs" />

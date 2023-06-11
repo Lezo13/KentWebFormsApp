@@ -8,6 +8,8 @@
 
     public interface ICourseService
     {
+        Task<Response<IEnumerable<Course>>> GetCoursesAsync();
+
         Task<Response<IEnumerable<UserCourse>>> GetUserCoursesAsync(GetUserCoursesRequest request);
 
         Task<Response<UserCourse>> GetUserCourseAsync(GetUserCourseRequest request);

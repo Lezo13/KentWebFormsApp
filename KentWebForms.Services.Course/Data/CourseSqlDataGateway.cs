@@ -17,6 +17,23 @@
             this.sql = sql;
         }
 
+        public async Task<IEnumerable<CourseEntity>> GetCoursesAsync()
+        {
+            var result = Enumerable.Empty<CourseEntity>();
+
+            try
+            {
+                var command = CourseSqlCommandFactory.CreateGetCoursesSqlCommand();
+                result = await this.sql.ReadAsListAsync<CourseEntity>(command);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception();
+            }
+
+            return result;
+        }
+
         public async Task<IEnumerable<UserCourseEntity>> GetUserCoursesAsync(string userId)
         {
             var result = Enumerable.Empty<UserCourseEntity>();

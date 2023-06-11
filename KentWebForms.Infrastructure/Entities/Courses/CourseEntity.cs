@@ -2,7 +2,7 @@
 {
     using System;
 
-    public class UserCourseEntity
+    public class CourseEntity
     {
         public Guid CourseId { get; set; }
 
@@ -18,16 +18,10 @@
 
         public string CourseState { get; set; }
 
-        public DateTime CourseDateCreated { get; set; }
+        public DateTime DateCreated { get; set; }
 
-        public DateTime CourseDateUpdated { get; set; }
+        public DateTime DateUpdated { get; set; }
 
-        public string UserId { get; set; }
-
-        public string Status { get; set; }
-
-        public DateTime DateEnrolled { get; set; }
-
-        public DateTime DateCompleted { get; set; }
+        public int TotalEnrolled { get; set; }
     }
 }
