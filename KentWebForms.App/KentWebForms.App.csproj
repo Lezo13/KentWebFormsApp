@@ -182,10 +182,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
     <Content Include="Content\CourseDetails.css" />
     <Content Include="Content\Courses.css" />
     <Content Include="Content\Custom.css" />
+    <Content Include="Content\Images\home_banner.jpg" />
     <Content Include="Content\Images\login_logo.png" />
     <Content Include="Content\NotFound.css" />
     <Content Include="Content\Login.css" />
@@ -278,13 +278,6 @@
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
