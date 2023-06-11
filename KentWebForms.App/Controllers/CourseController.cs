@@ -19,6 +19,15 @@
             this.service = service;
         }
 
+        // GET: api/course/courses
+        [HttpGet]
+        [Route("courses")]
+        public async Task<IHttpActionResult> GetCoursesAsync()
+        {
+            var result = await this.service.GetCoursesAsync();
+            return Content((HttpStatusCode)result.StatusCode, result);
+        }
+
         // GET: api/course/user_courses
         [HttpGet]
         [Route("user_courses")]

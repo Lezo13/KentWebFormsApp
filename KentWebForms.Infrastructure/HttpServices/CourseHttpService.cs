@@ -9,6 +9,13 @@
 
     public class CourseHttpService
     {
+        public async Task<Response<List<Course>>> GetCourses()
+        {
+            string apiRoute = "course/courses";
+            var response = await HttpHelper.Get<List<Course>>(apiRoute);
+            return response;
+        }
+
         public async Task<Response<List<UserCourse>>> GetUserCourses(GetUserCoursesRequest request)
         {
             string apiRoute = "course/user_courses";

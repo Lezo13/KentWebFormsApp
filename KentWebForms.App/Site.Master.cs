@@ -6,11 +6,14 @@
     using System.Web.UI;
     using System.Web.UI.WebControls;
     using KentWebForms.App.Services;
+    using KentWebForms.Infrastructure.Models.Accounts;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
 
     public partial class SiteMaster : MasterPage
     {
+        protected UserProfile userProfile;
+
         private const string AntiXsrfTokenKey = "__AntiXsrfToken";
         private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
         private string _antiXsrfTokenValue;
@@ -71,6 +74,7 @@
             this.ManageNavBarDisplay();
             this.CheckRecentRegistration();
             this.CheckLoginPrompt();
+            this.userProfile = StorageService.GetUserProfile(Session);
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
@@ -94,39 +98,7 @@
 
         protected string GetFullName()
         {
-            var currentUser = HttpContext.Current.User;
-         
-            string fullName = "No name specified";
-
-            if (currentUser != null)
-            {
-                var userManager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-                var user = userManager.FindByName(currentUser.Identity.Name);
-                fullName = string.Format("{0} {1}", user.FirstName, user.LastName);
-            }
-
-            return fullName;
-        }
-
-        protected string GetRoleName()
-        {
-            var currentUser = HttpContext.Current.User;
-
-            string roleName = "Unassigned";
-
-            if (currentUser.Identity.IsAuthenticated)
-            {
-                var userManager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-                var user = userManager.FindByName(currentUser.Identity.Name);
-                if (user != null)
-                {
-                    var roles = userManager.GetRoles(user.Id);
-
-                    roleName = roles[0];
-                }
-            }
-
-            return roleName;
+            return string.Format("{0} {1}", this.userProfile.FirstName, this.userProfile.LastName);
         }
 
         private void CheckRecentRegistration()

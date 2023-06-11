@@ -7,6 +7,17 @@
 
     public static class CourseSqlCommandFactory
     {
+        public static SqlCommand CreateGetCoursesSqlCommand()
+        {
+            var result = new SqlCommand("[sp_GetCourses]")
+            {
+                CommandType = CommandType.StoredProcedure,
+                CommandTimeout = 0
+            };
+
+            return result;
+        }
+
         public static SqlCommand CreateGetUserCoursesSqlCommand(string userId)
         {
             var result = new SqlCommand("[sp_GetUserCourses]")

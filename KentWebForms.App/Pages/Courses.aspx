@@ -14,10 +14,21 @@
                                 <h5 class="card-title"><%# Eval("Title") %></h5>
                                 <p class="card-text"><%# Eval("Category") %></p>
                             </div>
-                            <div class="card-body__right" runat="server">
+
+                            <div class="card-body__right">
+                                <% if (!IsAdminLoggedIn)
+                                    { %>
                                 <span class="badge bg-primary course-status <%# GetStatusClass(Container.DataItem) %>">
                                     <%# GetStatus(Container.DataItem) %>
                                 </span>
+                                <% }
+                                    else
+                                    { %>
+                                   <span class="badge bg-primary course-status <%# (int)Eval("TotalEnrolled") > 0 ? "bg-success" : "bg-dark" %>">
+                                       <i class="fa fa-users me-2" aria-hidden="true"></i> <%# Eval("TotalEnrolled") %>
+                                </span>
+                          
+                                <% } %>
                             </div>
 
                             <asp:LinkButton ID="btnPanel" runat="server" Text="" CssClass="course__link"

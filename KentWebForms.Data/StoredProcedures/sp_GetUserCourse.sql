@@ -9,8 +9,8 @@ AS
         ,C.[CourseDisplayImg]
         ,C.[CourseCoverImg]
         ,C.[CourseState]
-        ,C.[DateCreated]
-        ,C.[DateUpdated]
+        ,C.[DateCreated] [CourseDateCreated]
+        ,C.[DateUpdated] [CourseDateUpdated]
         ,UC.[UserId]
         ,UC.[Status]
     FROM [dbo].[Courses] as C
