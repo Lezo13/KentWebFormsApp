@@ -18,6 +18,25 @@
             this.gateway = gateway;
         }
 
+        public async Task<Response<Course>> GetCourseAsync(GetCourseRequest request)
+        {
+            var result = new Response<Course>();
+
+            try
+            {
+                result.Data = (await this.gateway.GetCourseAsync(request.CourseId)).AsModel();
+                result.Data.CourseUsers = (await this.gateway.GetCourseUsersAsync(request.CourseId)).AsModel();
+                result.SetSuccess();
+            }
+            catch (Exception ex)
+            {
+                result.SetFail(ex.Message);
+                throw new Exception();
+            }
+
+            return result;
+        }
+
         public async Task<Response<IEnumerable<Course>>> GetCoursesAsync()
         {
             var result = new Response<IEnumerable<Course>>();

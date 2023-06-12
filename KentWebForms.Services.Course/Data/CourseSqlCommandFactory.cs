@@ -7,6 +7,19 @@
 
     public static class CourseSqlCommandFactory
     {
+        public static SqlCommand CreateGetCourseSqlCommand(Guid courseId)
+        {
+            var result = new SqlCommand("[sp_GetCourse]")
+            {
+                CommandType = CommandType.StoredProcedure,
+                CommandTimeout = 0
+            };
+
+            result.Parameters.AddWithValue("@courseId", courseId);
+
+            return result;
+        }
+
         public static SqlCommand CreateGetCoursesSqlCommand()
         {
             var result = new SqlCommand("[sp_GetCourses]")
@@ -41,6 +54,19 @@
 
             result.Parameters.AddWithValue("@courseId", courseId);
             result.Parameters.AddWithValue("@userId", userId);
+
+            return result;
+        }
+
+        public static SqlCommand CreateGetCourseUsersSqlCommand(Guid courseId)
+        {
+            var result = new SqlCommand("[sp_GetCourseUsers]")
+            {
+                CommandType = CommandType.StoredProcedure,
+                CommandTimeout = 0
+            };
+
+            result.Parameters.AddWithValue("@courseId", courseId);
 
             return result;
         }

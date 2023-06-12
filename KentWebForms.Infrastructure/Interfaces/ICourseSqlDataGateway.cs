@@ -9,9 +9,13 @@
     {
         Task<IEnumerable<CourseEntity>> GetCoursesAsync();
 
+        Task<CourseEntity> GetCourseAsync(Guid courseId);
+
         Task<IEnumerable<UserCourseEntity>> GetUserCoursesAsync(string userId);
 
         Task<UserCourseEntity> GetUserCourseAsync(Guid courseId, string userId);
+
+        Task<IEnumerable<CourseUserEntity>> GetCourseUsersAsync(Guid courseId);
 
         Task InsertUserCourseAsync(UserCourseEntity entity);
 

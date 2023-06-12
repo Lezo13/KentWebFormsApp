@@ -74,5 +74,10 @@
             
             return userProfile;
         }
+
+        public static void ClearUserProfile(HttpSessionState session)
+        {
+            session.Remove(AccountConstants.UserProfile);
+        }
     }
 }

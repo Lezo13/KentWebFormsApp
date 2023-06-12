@@ -17,6 +17,23 @@
             this.sql = sql;
         }
 
+        public async Task<CourseEntity> GetCourseAsync(Guid courseId)
+        {
+            var result = new CourseEntity();
+
+            try
+            {
+                var command = CourseSqlCommandFactory.CreateGetCourseSqlCommand(courseId);
+                result = await this.sql.ReadAsync<CourseEntity>(command);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception();
+            }
+
+            return result;
+        }
+
         public async Task<IEnumerable<CourseEntity>> GetCoursesAsync()
         {
             var result = Enumerable.Empty<CourseEntity>();
@@ -59,6 +76,23 @@
             {
                 var command = CourseSqlCommandFactory.CreateGetUserCourseSqlCommand(courseId, userId);
                 result = await this.sql.ReadAsync<UserCourseEntity>(command);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception();
+            }
+
+            return result;
+        }
+
+        public async Task<IEnumerable<CourseUserEntity>> GetCourseUsersAsync(Guid courseId)
+        {
+            var result = Enumerable.Empty<CourseUserEntity>();
+
+            try
+            {
+                var command = CourseSqlCommandFactory.CreateGetCourseUsersSqlCommand(courseId);
+                result = await this.sql.ReadAsListAsync<CourseUserEntity>(command);
             }
             catch (Exception ex)
             {
