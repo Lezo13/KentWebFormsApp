@@ -3,7 +3,7 @@
 The app is designed to cater to users who are interested in enrolling in different courses. Users can browse through the available courses, view course details, and enroll in courses of their choice. The system provides a user-friendly interface to facilitate easy course selection and enrollment.
 
 ## User View
-![Alt Text](https://i.imgur.com/q2Lz6uA.gif)
+![Alt Text](https://i.imgur.com/biNTVli.gif)
 ## Admin View
 ![Alt Text](https://i.imgur.com/tFq7INT.gif)
 
