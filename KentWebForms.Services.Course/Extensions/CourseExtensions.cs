@@ -1,4 +1,4 @@
-﻿namespace KentWebForms.Services.Faculty.Extensions
+﻿namespace KentWebForms.Services.Course.Extensions
 {
     using System.Collections.Generic;
     using System.Linq;
