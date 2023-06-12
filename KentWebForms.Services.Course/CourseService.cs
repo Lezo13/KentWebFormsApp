@@ -7,7 +7,7 @@
     using KentWebForms.Infrastructure.Models;
     using KentWebForms.Infrastructure.Models.Courses;
     using KentWebForms.Infrastructure.Requests.Courses;
-    using KentWebForms.Services.Faculty.Extensions;
+    using KentWebForms.Services.Course.Extensions;
 
     public class CourseService : ICourseService
     {
