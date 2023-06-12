@@ -74,6 +74,8 @@
     <Build Include="StoredProcedures\sp_InsertUserCourse.sql" />
     <Build Include="StoredProcedures\sp_DeleteUserCourse.sql" />
     <Build Include="StoredProcedures\sp_GetCourses.sql" />
+    <Build Include="StoredProcedures\sp_GetCourse.sql" />
+    <Build Include="StoredProcedures\sp_GetCourseUsers.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\PostDeployment.sql" />

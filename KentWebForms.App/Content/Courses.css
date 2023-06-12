@@ -23,19 +23,3 @@
 .course__item {
     cursor: pointer;
 }
-
-.course-status.default {
-    background-color: #FF9117 !important;
-}
-
-.course-status.in-progress {
-    background-color: #8DC356 !important;
-}
-
-.course-status.join {
-    background-color: #FF9117 !important;
-}
-
-.course-status.completed {
-    background-color: #DBCEE7 !important;
-}

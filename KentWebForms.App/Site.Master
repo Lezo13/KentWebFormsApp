@@ -88,7 +88,7 @@
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                             <li>
                                                 <div class="logout__section">
-                                                    <asp:LoginStatus CssClass="text-danger" runat="server" LogoutAction="Redirect" LogoutText="Log out" LogoutPageUrl="~/Account/Login" OnLoggingOut="Unnamed_LoggingOut" />
+                                                    <asp:LoginStatus CssClass="text-danger" runat="server" LogoutAction="Redirect" LogoutText="Log out" LogoutPageUrl="~/Account/Login" OnLoggingOut="LogoutUser" />
                                                     <i class='bx bx-log-out text-danger'></i>
                                                 </div>
                                         </ul>

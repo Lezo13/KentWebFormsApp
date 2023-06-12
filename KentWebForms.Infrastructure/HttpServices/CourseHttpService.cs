@@ -16,6 +16,13 @@
             return response;
         }
 
+        public async Task<Response<Course>> GetCourse(GetCourseRequest request)
+        {
+            string apiRoute = "course";
+            var response = await HttpHelper.Get<GetCourseRequest, Course>(apiRoute, request);
+            return response;
+        }
+
         public async Task<Response<List<UserCourse>>> GetUserCourses(GetUserCoursesRequest request)
         {
             string apiRoute = "course/user_courses";

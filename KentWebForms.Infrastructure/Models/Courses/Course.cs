@@ -1,6 +1,7 @@
 ﻿namespace KentWebForms.Infrastructure.Models.Courses
 {
     using System;
+    using System.Collections.Generic;
 
     public class Course
     {
@@ -23,5 +24,7 @@
         public DateTime DateUpdated { get; set; }
 
         public int TotalEnrolled { get; set; }
+
+        public IEnumerable<CourseUser> CourseUsers { get; set; }
     }
 }

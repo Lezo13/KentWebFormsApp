@@ -29,10 +29,19 @@
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            var currentUser = HttpContext.Current.User;
+
             if (!IsPostBack)
             {
                 this.CheckLoggedIn();
                 this.userProfile = StorageService.GetUserProfile(Session);
+
+                if (this.userProfile == null)
+                {
+                    Response.Redirect("~/");
+                    return;
+                }
+
                 this.IsAdminLoggedIn = this.userProfile.RoleName.ToLower() == "admin";
 
                 if (this.IsAdminLoggedIn)
@@ -98,6 +107,28 @@
             }
 
             return statusClass;
+        }
+
+        protected string GetCountStatusClass(object dataItem)
+        {
+            if (!this.IsAdminLoggedIn)
+            {
+                return string.Empty;
+            }
+
+            var course = (Course)dataItem;
+            return course.TotalEnrolled > 0 ? "bg-success" : "bg-dark";
+        }
+
+        protected int GetTotalEnrolled(object dataItem)
+        {
+            if (!this.IsAdminLoggedIn)
+            {
+                return 0;
+            }
+
+            var course = (Course)dataItem;
+            return course.TotalEnrolled;
         }
 
         private void CheckLoggedIn()

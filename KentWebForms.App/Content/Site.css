@@ -16,6 +16,12 @@
 
 body {
     background: #ecf0f3;
+    height: 100vh;
+    overflow: hidden;
+}
+
+form {
+    height: inherit;
 }
 
 .wrapper {

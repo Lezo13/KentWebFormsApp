@@ -8,7 +8,6 @@
     using KentWebForms.App.Services;
     using KentWebForms.Infrastructure.Models.Accounts;
     using Microsoft.AspNet.Identity;
-    using Microsoft.AspNet.Identity.Owin;
 
     public partial class SiteMaster : MasterPage
     {
@@ -77,9 +76,10 @@
             this.userProfile = StorageService.GetUserProfile(Session);
         }
 
-        protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
+        protected void LogoutUser(object sender, LoginCancelEventArgs e)
         {
             Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            this.ClearUser();
         }
 
         private void ManageNavBarDisplay()
@@ -133,6 +133,12 @@
             string options = "{positionClass: 'toast-top-center', timeOut: 3000}";
             string script = string.Format("toastr.success('{0}', '{1}', {2});", message, title, options);
             Page.ClientScript.RegisterStartupScript(this.GetType(), "ToastrSuccess", script, true);
+        }
+
+        private void ClearUser()
+        {
+            this.userProfile = new UserProfile();
+            StorageService.ClearUserProfile(Session);
         }
     }
 

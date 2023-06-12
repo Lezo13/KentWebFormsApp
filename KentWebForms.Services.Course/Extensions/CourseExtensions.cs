@@ -91,5 +91,34 @@
 
             return result;
         }
+
+        public static IEnumerable<CourseUser> AsModel(this IEnumerable<CourseUserEntity> entities)
+        {
+            var result = Enumerable.Empty<CourseUser>();
+            if (entities != null)
+            {
+                result = entities.Select(entity => entity.AsModel());
+            }
+
+            return result;
+        }
+
+        public static CourseUser AsModel(this CourseUserEntity entity)
+        {
+            var result = new CourseUser
+            {
+                CourseId = entity.CourseId,
+                Status = entity.Status,
+                DateCompleted = entity.DateCompleted,
+                DateEnrolled = entity.DateEnrolled,
+                UserId = entity.UserId,
+                Email = entity.Email,
+                FirstName = entity.FirstName,
+                LastName  = entity.LastName,
+                UserName = entity.UserName
+            };
+
+            return result;
+        }
     }
 }

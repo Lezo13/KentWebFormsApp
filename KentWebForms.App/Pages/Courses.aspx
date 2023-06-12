@@ -24,8 +24,8 @@
                                 <% }
                                     else
                                     { %>
-                                   <span class="badge bg-primary course-status <%# (int)Eval("TotalEnrolled") > 0 ? "bg-success" : "bg-dark" %>">
-                                       <i class="fa fa-users me-2" aria-hidden="true"></i> <%# Eval("TotalEnrolled") %>
+                                   <span class="badge bg-primary course-status <%# GetCountStatusClass(Container.DataItem) %>">
+                                       <i class="fa fa-users me-2" aria-hidden="true"></i> <%# GetTotalEnrolled(Container.DataItem) %>
                                 </span>
                           
                                 <% } %>

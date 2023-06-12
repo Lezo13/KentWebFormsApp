@@ -1,5 +1,28 @@
-﻿.course__body {
+﻿.page-course__details {
+    display: flex;
+    height: 100%;
+}
+
+.course__body {
     margin: 1rem 2rem;
+}
+
+.course--left {
+    flex-grow: 1;
+    position: relative;
+    overflow: auto;
+    height: calc(100% - 5rem);
+}
+
+.course--right {
+    padding: 2rem;
+    background-color: #100c0dc9;
+    color: white;
+    row-gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    min-width: fit-content;
 }
 
 .course__header .header--left {
@@ -61,4 +84,20 @@
 .unlock__label i {
     font-size: 25px !important;
     margin-right: 0.5rem;
+}
+
+.user-course__item {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.user-section__title {
+    background-color: #00000047;
+    border-radius: 0.5rem;
+    padding: 0.25rem;
+    font-weight: 600;
+    color: #7bffc3;
+    text-align: center;
 }
